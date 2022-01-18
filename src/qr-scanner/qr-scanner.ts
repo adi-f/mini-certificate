@@ -2,6 +2,8 @@ import QrScanner from 'qr-scanner';
 // @ts-ignore
 import QrScannerWorkerPath from '!!file-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
 
+// doc: see https://github.com/nimiq/qr-scanner
+
 QrScanner.WORKER_PATH = QrScannerWorkerPath;
 
 export class Scanner {
