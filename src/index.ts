@@ -1,3 +1,7 @@
-import {Scanner} from "./qr-scanner/qr-scanner";
+import {Scanner} from "./qr-scanner/scanner";
+import {Generator} from "./qr-generator/generator";
 
-new Scanner(document.querySelector('video')).readCode().then(result => alert(result));
+const scanner = new Scanner(document.querySelector('video'));
+const generator = new Generator(document.querySelector('canvas'));
+
+scanner.readCode().then((data: string) => generator.generate(data));

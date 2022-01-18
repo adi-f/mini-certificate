@@ -23,8 +23,8 @@ export class Scanner {
     return promise;
   }
 
-  private internalQrCallback(result: string): void {
+  private internalQrCallback(data: string): void {
     this.qrScanner.stop();
-    this.currentResolve(result)
+    this.currentResolve(data)
   }
 }
