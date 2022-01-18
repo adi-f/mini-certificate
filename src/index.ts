@@ -1,1 +1,3 @@
-document.querySelector('h1').innerText = 'Test succeed!'
+import {Scanner} from "./qr-scanner/qr-scanner";
+
+new Scanner(document.querySelector('video')).readCode().then(result => alert(result));
