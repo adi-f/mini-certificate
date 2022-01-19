@@ -1,0 +1,26 @@
+// generated file, see simplify-vacc.js
+export const vaccineProducts: {[code: string]: string} = {
+  "EU/1/20/1528": "Comirnaty",
+  "EU/1/20/1507": "Spikevax",
+  "EU/1/21/1529": "Vaxzevria",
+  "EU/1/20/1525": "COVID-19 Vaccine Janssen",
+  "CVnCoV": "CVnCoV",
+  "NVX-CoV2373": "NVX-CoV2373 (deprecated)",
+  "Sputnik-V": "Sputnik-V",
+  "Convidecia": "Convidecia",
+  "EpiVacCorona": "EpiVacCorona",
+  "BBIBP-CorV": "BBIBP-CorV",
+  "Inactivated-SARS-CoV-2-Vero-Cell": "Inactivated SARS-CoV-2 (Vero Cell) (deprecated)",
+  "CoronaVac": "CoronaVac",
+  "Covaxin": "Covaxin (also known as BBV152 A, B, C)",
+  "Covishield": "Covishield (ChAdOx1_nCoV-19)",
+  "Covid-19-recombinant": "Covid-19 (recombinant)",
+  "R-COVI": "R-COVI",
+  "CoviVac": "CoviVac",
+  "Sputnik-Light": "Sputnik Light",
+  "Hayat-Vax": "Hayat-Vax",
+  "Abdala": "Abdala",
+  "WIBP-CorV": "WIBP-CorV",
+  "MVC-COV1901": "MVC COVID-19 vaccine",
+  "EU/1/21/1618": "Nuvaxovid"
+};

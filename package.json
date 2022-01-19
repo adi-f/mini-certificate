@@ -4,7 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "write-vaccine-products": "node util/simplify-vacc.js"
   },
   "keywords": [],
   "author": "",
