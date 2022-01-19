@@ -1,7 +1,7 @@
 import {decode as decodeBase45} from 'base45-web';
-import {deflate} from 'pako';
+import {inflate} from 'pako';
 // @ts-ignore
-import * as COBR from 'cbor-js';
+import {decode as decodeCbor} from 'cbor-js';
 
 
 // docs certificate:
@@ -14,14 +14,20 @@ import * as COBR from 'cbor-js';
 // - https://github.com/nodeca/pako (zlib)
 // - https://www.npmjs.com/package/cbor-js
 
-const HEALT_CERTIFICATE_V1 = 'HC1'
+const HEALT_CERTIFICATE_V1 = 'HC1';
+const COSE_PAYLOAD_POS = 2;
+const HCERT_KEY = -260;
+const FIRST_HCERT_KEY = 1;
 
 export function decode(data: string): void {
   const base45: string = checkVersionAndGetBase45(data);
   const zlib: ArrayBuffer = decodeBase45(base45);
-  const cobr: Uint8Array = deflate(new Uint8Array(zlib));
-  const obj = COBR.decode(cobr.buffer);
-  console.log(obj);
+  const coseBinary: Uint8Array = inflate(new Uint8Array(zlib));
+  const coseObj = decodeCbor(toArrayBuffer(coseBinary));
+  const payloadBinary: Uint8Array = coseObj[COSE_PAYLOAD_POS];
+  const payloadObj = decodeCbor(toArrayBuffer(payloadBinary));
+  const hcert = payloadObj[HCERT_KEY][FIRST_HCERT_KEY];
+  console.log(hcert);
 }
 
 function checkVersionAndGetBase45(data: string): string {
@@ -32,4 +38,9 @@ function checkVersionAndGetBase45(data: string): string {
     console.warn(`Unknown Version: got '${version}', expected '${HEALT_CERTIFICATE_V1}'`);
   }
   return base45;
+}
+
+function toArrayBuffer(uint8: Uint8Array): ArrayBuffer {
+  // 'cbor-js' bug? the returned uint8.buffer doesn't match to the Uint8Array data...
+  return new Uint8Array(uint8).buffer;
 }
