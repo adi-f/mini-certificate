@@ -5,9 +5,8 @@ import {decode as decodeCbor} from 'cbor-js';
 
 
 // docs certificate:
-// - Certificate https://ec.europa.eu/health/system/files/2021-04/digital-green-certificates_v3_en_0.pdf
-// - zlib https://en.wikipedia.org/wiki/Zlib
-// - COBR: https://en.wikipedia.org/wiki/CBOR
+// - certificate https://ec.europa.eu/health/system/files/2021-04/digital-green-certificates_v3_en_0.pdf
+// - JSON structure https://ec.europa.eu/health/system/files/2021-06/covid-certificate_json_specification_en_0.pdf
 
 // docs libs:
 // - https://github.com/irony/base45
@@ -28,6 +27,7 @@ export function decode(data: string): void {
   const payloadObj = decodeCbor(toArrayBuffer(payloadBinary));
   const hcert = payloadObj[HCERT_KEY][FIRST_HCERT_KEY];
   console.log(hcert);
+  console.log(JSON.stringify(hcert));
 }
 
 function checkVersionAndGetBase45(data: string): string {
