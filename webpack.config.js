@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
-  // devtool: 'source-map',
-  // optimization: {
-  //   minimize: false
-  // },
+  devtool: 'source-map',
+  optimization: {
+    minimize: false
+  },
   module: {
     rules: [
       {

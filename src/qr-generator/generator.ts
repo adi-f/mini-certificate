@@ -1,11 +1,17 @@
-import * as QRCode from 'qrcode';
+import * as QRCode from 'qrcode-svg';
 
-// doc: see https://github.com/soldair/node-qrcode
+// doc: see https://github.com/papnkukn/qrcode-svg
 export class Generator {
   constructor(private canvas: HTMLCanvasElement) {}
 
-  generate(data: string): void {
-    QRCode.toCanvas(this.canvas, data)
-    // QRCode.toCanvas(this.canvas, [{data, mode: "numeric"}])
+  generateSvg(data: string): string {
+    return new QRCode({
+      content: data,
+      padding: 0,
+      height: 1,
+      width: 1,
+      ecl: 'L',
+      container: 'svg-viewbox'
+    }).svg();
   }
 }

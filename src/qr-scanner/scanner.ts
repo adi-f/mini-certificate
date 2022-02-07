@@ -1,7 +1,6 @@
 import QrScanner from 'qr-scanner';
 // @ts-ignore
-import QrScannerWorkerPath
-  from '!!file-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
+import QrScannerWorkerPath from '!!file-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js';
 
 // doc: see https://github.com/nimiq/qr-scanner
 
@@ -35,7 +34,7 @@ export class Scanner {
     // try to optimize for large QR codes
     const maxSquare = Math.min(video.videoWidth, video.videoHeight);
     let scaleTo;
-    for(scaleTo = maxSquare; scaleTo >= 1600; scaleTo = Math.round(scaleTo/2)) {} // min scale: >= 800px
+    for(scaleTo = maxSquare; scaleTo >= 1000; scaleTo = Math.round(scaleTo/2)) {} // scale to 500-1000px
     console.log(`scan size: ${maxSquare}px; scaled to: ${scaleTo}px`)
     return {
       x: Math.round((video.videoWidth - maxSquare) / 2),

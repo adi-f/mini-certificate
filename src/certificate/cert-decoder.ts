@@ -29,7 +29,7 @@ export function decode(data: string): CertificateInfo {
   const payloadBinary: Uint8Array = coseObj[COSE_PAYLOAD_POS];
   const payloadObj = decodeCbor(toArrayBuffer(payloadBinary));
   const hcert: Hcert = payloadObj[HCERT_KEY][FIRST_HCERT_KEY];
-  return toCertificateInfo(hcert)
+  return toCertificateInfo(data, hcert)
 }
 
 function checkVersionAndGetBase45(data: string): string {
@@ -47,8 +47,9 @@ function toArrayBuffer(uint8: Uint8Array): ArrayBuffer {
   return new Uint8Array(uint8).buffer;
 }
 
-function toCertificateInfo(hcert: Hcert): CertificateInfo {
+function toCertificateInfo(qrCode: string, hcert: Hcert): CertificateInfo {
   return {
+    qrCode,
     firstName: hcert.nam.fn,
     lastName: hcert.nam.gn,
     dob: hcert.dob,
