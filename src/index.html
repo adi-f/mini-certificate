@@ -2,11 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mini Certificate Generator</title>
   </head>
   <body>
-    <h1>Read QR-Code</h1>
+  <div class="no-print">
+    <h1>Mini Certificate Generator</h1>
+    <button id="scan-btn">add certificate (scan)</button>
+    <select id="template-select"><option>&lt;select template&gt;</option></select>
+    <button id="print-btn">print</button>
+    <h3>Certificates:</h3>
+    <ul id="cert-list"></ul>
     <video></video>
     <canvas></canvas>
+  </div>
+  <div id="print-section"></div>
   </body>
 </html>

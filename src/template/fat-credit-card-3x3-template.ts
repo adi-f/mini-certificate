@@ -1,4 +1,4 @@
-import {Template} from "./template";
+import {Template, TemplateInfo} from "./template";
 import {Generator} from "../qr-generator/generator";
 import {CertificateInfo} from "../certificate/certificate-info";
 
@@ -11,8 +11,6 @@ export class FatCreditCard3x3Template extends Template {
     }
     return page
   }
-
-
 
   private createCard(certificateInfo: CertificateInfo): HTMLElement {
     const name = this.formatName(certificateInfo.firstName, certificateInfo.lastName);
@@ -40,5 +38,12 @@ export class FatCreditCard3x3Template extends Template {
     svg.setAttribute('style', 'display: inline-block; width: 55mm; height: 55mm; margin: 3mm auto');
 
     return element;
+  }
+
+  getInfo(): TemplateInfo {
+    return {
+      id: this.constructor.name,
+      name: '3 x 3 fat credit cards'
+    };
   }
 }

@@ -50,8 +50,8 @@ function toArrayBuffer(uint8: Uint8Array): ArrayBuffer {
 function toCertificateInfo(qrCode: string, hcert: Hcert): CertificateInfo {
   return {
     qrCode,
-    firstName: hcert.nam.fn,
-    lastName: hcert.nam.gn,
+    firstName: hcert.nam.gn,
+    lastName: hcert.nam.fn,
     dob: hcert.dob,
     product: vaccineProductsCodeToName(hcert.v[0].mp),
     dateOfVaccination: hcert.v[0].dt

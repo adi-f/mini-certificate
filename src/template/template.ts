@@ -4,6 +4,11 @@ const MONTHS = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
 
+export interface TemplateInfo {
+  id: string;
+  name: string;
+}
+
 export abstract class Template {
   protected certificates: CertificateInfo[]
   protected document: Document
@@ -17,6 +22,8 @@ export abstract class Template {
   }
 
   abstract render(): HTMLElement;
+
+  abstract getInfo(): TemplateInfo;
 
   protected formatName(firstName: string, lastName: string): string {
     return firstName + ' ' + lastName;
