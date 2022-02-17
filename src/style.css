@@ -5,3 +5,6 @@
     display: none !important;
   }
 }
+body {
+  font-family: sans-serif;
+}

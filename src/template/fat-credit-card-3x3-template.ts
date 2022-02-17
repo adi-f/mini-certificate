@@ -19,7 +19,7 @@ export class FatCreditCard3x3Template extends Template {
     const svgQrCode = new Generator(null).generateSvg(certificateInfo.qrCode);
 
     const html =
-`<div style="display: inline-block; text-align: center; width: 57mm; height: 80mm; padding: 0; border: 1px solid darkgray; margin: 8mm 4mm ">
+`<div style="display: inline-block; text-align: center; width: 57mm; height: 80mm; padding: 0; border: 1px solid darkgray; margin: 8mm 4mm; vertical-align: top">
   ${svgQrCode}
   <div style="display: block; text-align: left; font-family: sans-serif; font-size: 0.4cm; margin: 0 1mm">
     <div style="display: inline-block; font-weight: bold">Name: </div>
